@@ -1,10 +1,45 @@
-function downloadVideo() {
-    const videoUrl = document.getElementById('videoUrl').value;
-    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
-        const apiUrl = `https://loader.to/api/button/?url=${encodeURIComponent(videoUrl)}`;
-        window.open(apiUrl, '_blank');
-        document.getElementById('message').innerText = 'Redirecionando para download...';
-    } else {
-        document.getElementById('message').innerText = 'Por favor, insira um link válido do YouTube.';
-    }
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baixar Vídeos do YouTube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Baixar Vídeos do YouTube</h1>
+    <p>Cole o link do vídeo abaixo:</p>
+    <input type="text" id="videoUrl" placeholder="Cole o link do YouTube aqui">
+    <button onclick="downloadVideo()">Baixar</button>
+    <p id="message"></p>
+
+    <script>
+        function downloadVideo() {
+            const videoUrl = document.getElementById('videoUrl').value;
+            if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                const apiUrl = `https://yt-downloader-api.herokuapp.com/download?url=${encodeURIComponent(videoUrl)}`;
+                window.open(apiUrl, '_blank');
+                document.getElementById('message').innerText = 'Redirecionando para download...';
+            } else {
+                document.getElementById('message').innerText = 'Por favor, insira um link válido do YouTube.';
+            }
+        }
+    </script>
+</body>
+</html>

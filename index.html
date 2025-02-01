@@ -26,16 +26,7 @@
     <h1>Baixar Vídeos do YouTube</h1>
     <p>Cole o link do vídeo abaixo:</p>
     <input type="text" id="videoUrl" placeholder="Cole o link do YouTube aqui">
-    <button onclick="function downloadVideo() {
-    const videoUrl = document.getElementById('videoUrl').value;
-    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
-        const apiUrl = `https://backend-v3.loader.to/api/download?url=${encodeURIComponent(videoUrl)}`;
-        window.open(apiUrl, '_blank');
-        document.getElementById('message').innerText = 'Redirecionando para download...';
-    } else {
-        document.getElementById('message').innerText = 'Por favor, insira um link válido do YouTube.';
-    }
-}()">Baixar</button>
+    <button onclick="downloadVideo()">Baixar</button>
     <p id="message"></p>
 
     <script>
